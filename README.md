@@ -81,31 +81,10 @@ Download the .zip file and extract all files into directory of your choice OR cl
   * Input: "API put request is made to the API containing a body of the edited object"
   * Output: *Object with that id is updated to match the user's put request.*
 
-## Endpoints and making requests
-
-_Version One Parameters:_
-| Parameter | Type | Description |
-| :---: | :---: | :---: | --- |
-| name | string | Query animal by name. |
-| species | string | Query animal by species. |
-| gender | string | Query animal by gender. |
-| age | int | Query animal by age. |
-
-_Additional parameters using Version Two:_
-| Parameter | Type | Description |
-| :---: | :---: | :---: | --- |
-| start | int | Query animal by age older than this number. |
-| age | int | Query animal by age. |
-| end | int | Query animal by age younger than this number. |
-
-
-Example Queries:
-
-
 ## Setup/Installation Requirements
 
 * _1. CLone the repository containing the API._
-  * Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone `.
+  * _Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone `_.
 * _2. After cloning the repository, navigate to the project directory of the repository._
   * `> cd cat-board-2.0`
   * `> cd cat-board-2.0`
@@ -143,3 +122,10 @@ _If you have any questions, suggestions, comments, or concerns, feel free to con
 ### License
 
 *Licensed under the open source MIT license*
+
+
+squad cred
+mr.computer
+Co-authored-by: jeremy kale padot <jeremy@padot.us>
+Co-authored-by: Patrick Delaney <prestwick97@gmail.com>
+Co-authored-by: Rachel Schieferstein <violenza@gmail.com>
