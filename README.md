@@ -1,12 +1,67 @@
-# _Animal Shelter_
+# _CatBaord2.0_
 
-#### _An API that allows you to cread, read, update, and delete animal object from a shelter databasse, 04/03/2020_
+#### _An API that allows you to create, read, update, and delete cat object from a catboard database, 04/03/2020_
 
-#### By _**Patrick Delaney**_
+#### By _**Patrick Delaney, Jeremy Kale Padot, Rachel Schieferstein, Keturah Howard**_
 
 ## Description
 
-_Using this API, you can create/edit your own animal shelter! At the moment, the only species are dogs and cats. Feel free to add more! You have the ability to edit, create, observe, and delete objects in the database through this API._
+_You have the ability to edit, create, observe, and delete objects in the database through this API._
+
+
+### user stories:
+
+* As a user, I want to be able to GET all boards.
+* As a user, I want to be able to GET all posts related to boards.
+* As a user, I want to be able to POST boards.
+* As a user, I want to be able to POST posts to boards.
+* As a user, I want to be able to POST comments to posts.
+* As a user, I want to be able to PUT/Update specific boards.
+* As a user, I want to be able to PUT/Update specific posts.
+* As a user, I want to be able to DELETE specific boards.
+* As a user, I want to be able to DELETE specific posts.
+
+
+### API Endpoints
+
+BOARDS
+```
+GET /api/boards
+POST /api/boards
+GET /api/boards/{boardId}
+PUT /api/boards/{boardId}
+DELETE /api/boards/{boardId}
+```
+
+POSTS
+```
+GET /api/boards/{boardId}/Posts
+POST /api/boards/{boardId}/Posts
+GET /api​/boards​/{boardId}​/Posts​/{id}
+PUT /api​/boards​/{boardId}​/Posts​/{id}
+DELETE /api/boards/{boardId}/Posts/{id}
+PATCH /api​/boards​/{boardId}​/Posts​/{id}​/upvote
+PATCH /api/boards/{boardId}/Posts/{id}/downvote
+```
+
+COMMENTS (*- Interface: work in progress -*)
+```
+GET /api/boards/{boardId}/posts/{postId}/Comments
+POST /api/boards/{boardId}/posts/{postId}/Comments
+GET /api/boards/{boardId}/posts/{postId}/Comments/{id}
+PUT /api/boards/{boardId}/posts/{postId}/Comments/{id}
+DELETE /api/boards/{boardId}/posts/{postId}/Comments/{id}
+```
+
+
+## Getting Started
+
+Download the .zip file and extract all files into directory of your choice OR clone the repository to a directory. Open project directory in preferred text editor.
+
+### Prerequisites
+
+1. [.NET Framework](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.106-macos-x64-installer) 
+2. Text Editor (Visual Studio Code)
 
 ## Specs
 
@@ -15,41 +70,18 @@ _Using this API, you can create/edit your own animal shelter! At the moment, the
   * Output: *Requested object(s) are returned to the user from the databse*
 
 * Behavior: An object will be added to a databse through the API.
-	* Input: "Create an animal object."
+	* Input: "Create a cat object."
 	* Output: *Object is stored in the database for future reference.*
 
 * Behavior: An object will be deleted from the database using the API.
-  * Input: "Delete an animal object."
+  * Input: "Delete an cat object."
   * Output: *Object is removed from the database through the API.*
 
 * Behavior: User is able to edit objects within the database.
   * Input: "API put request is made to the API containing a body of the edited object"
   * Output: *Object with that id is updated to match the user's put request.*
 
-## Documentation
-_ To view documentation for this API, use the following links to view the documentation produced by Swagger. Version 1.0:(https://app.swaggerhub.com/apis/PatterCat666/animal-shelter/0.1), version 2.0: (https://app.swaggerhub.com/apis/PatterCat666/animal-shelter/0.2)._
-
-## Versioning
-_ There are two versions of this API. Version two has all of the same endpoints at version one, with the addition of age parameters. In version two, you may enter an exact age for an animal; or you may enter a range(ex. ages: 2-20). You indicate which version you're using within the URL of the API call.(/api/{api version}/animals). _
 ## Endpoints and making requests
-HTTP Request Routes
-REQUEST: CRUD/api/{api version(1-2)}/animals/{id}
-REQUEST: CRUD/api/{api version(1-2)}/animals/?parameter
-
-GET /api/{version}/animals
-* Get a list of all animals.
-
-GET /api/{version}/animals/{id}
-* Get a specific animal via it's ID from the database.
-
-POST /api/{version}/animals
-* Post an animal to the database.
-
-PUT /api/{version}/animals/{id}
-* Edit a specific animal from the database.
-
-DELETE /api/{version}/animals/{id}
-* Delete a specific animal from the database.
 
 _Version One Parameters:_
 | Parameter | Type | Description |
@@ -68,14 +100,12 @@ _Additional parameters using Version Two:_
 
 
 Example Queries:
-http://localhost:5000/api/1/animals/?species=dog
-http://localhost:5000/api/2/animals/?parameter
-http://localhost:5000/api/1/animals/?parameter1&parameter2
+
 
 ## Setup/Installation Requirements
 
 * _1. CLone the repository containing the API._
-  * Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone https://github.com/Prestwick97/AnimalShelter.Solution.git`.
+  * Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone `.
 * _2. After cloning the repository, navigate to the project directory of the repository._
   * `> cd AnimalShelter.Solution`
   * `> cd AnimalShelter`
@@ -120,4 +150,388 @@ _If you have any questions, suggestions, comments, or concerns, feel free to con
 
 *Licensed under the open source MIT license*
 
-Copyright (c) 2020 **_Patrick S. Delaney_**
+Copyright (c) 2020 **_Patrick S. Delane and friends_**| name | string | Query animal by name. |
+| species | string | Query animal by species. |
+| gender | string | Query animal by gender. |
+| age | int | Query animal by age. |
+
+_Additional parameters using Version Two:_
+| Parameter | Type | Description |
+| :---: | :---: | :---: | --- |
+| start | int | Query animal by age older than this number. |
+| age | int | Query animal by age. |
+| end | int | Query animal by age younger than this number. |
+
+
+Example Queries:
+
+
+## Setup/Installation Requirements
+
+* _1. CLone the repository containing the API._
+  * Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone `.
+* _2. After cloning the repository, navigate to the project directory of the repository._
+  * `> cd AnimalShelter.Solution`
+  * `> cd AnimalShelter`
+* _3. Once you're inside the project directory, migrate the data to form a database in MySQL._
+  * `> dotnet ef migrations add Initial`
+  * `> dotnet ef database update`
+  * _You now have the database neccessary to use the API!_
+* _Now feel free to C.R.U.D. away using Postman, or by building an interface._
+
+## Known Bugs
+
+_At the moment, even though you can search for a specific age in version 2.0 of the API (AnimalsTwoController), when you try to request animals within a range of ages (http://localhost:5000/api/2.0/animals/age/?start=01-01-2012&end=01-31-2019), you get the following error:_
+`{`
+    `"errors": {`
+        `"id": [`
+            `"The value 'age' is not valid."`
+        `]`
+    `},`
+    `"title": "One or more validation errors occurred.",`
+    `"status": 400,`
+    `"traceId": "0HLUO4T0R5API:00000006"`
+`}`
+
+## Support and contact details
+
+_If you have any questions, suggestions, comments, or concerns, feel free to contact me at prestwick97@gmail.com_
+
+## Technologies Used
+
+* _C#_
+* _.NETcore scaffolding_
+* _json_
+* _MVC_
+* _Postman_
+* _API versioning_
+* _SwaggerEditer_
+* _VScode_
+* _MySQL_
+* _MySQL Workbench_
+
+### License
+
+*Licensed under the open source MIT license*
+
+Copyright (c) 2020 **_Patrick S. Delane and friends_**| name | string | Query animal by name. |
+| species | string | Query animal by species. |
+| gender | string | Query animal by gender. |
+| age | int | Query animal by age. |
+
+_Additional parameters using Version Two:_
+| Parameter | Type | Description |
+| :---: | :---: | :---: | --- |
+| start | int | Query animal by age older than this number. |
+| age | int | Query animal by age. |
+| end | int | Query animal by age younger than this number. |
+
+
+Example Queries:
+
+
+## Setup/Installation Requirements
+
+* _1. CLone the repository containing the API._
+  * Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone `.
+* _2. After cloning the repository, navigate to the project directory of the repository._
+  * `> cd AnimalShelter.Solution`
+  * `> cd AnimalShelter`
+* _3. Once you're inside the project directory, migrate the data to form a database in MySQL._
+  * `> dotnet ef migrations add Initial`
+  * `> dotnet ef database update`
+  * _You now have the database neccessary to use the API!_
+* _Now feel free to C.R.U.D. away using Postman, or by building an interface._
+
+## Known Bugs
+
+_At the moment, even though you can search for a specific age in version 2.0 of the API (AnimalsTwoController), when you try to request animals within a range of ages (http://localhost:5000/api/2.0/animals/age/?start=01-01-2012&end=01-31-2019), you get the following error:_
+`{`
+    `"errors": {`
+        `"id": [`
+            `"The value 'age' is not valid."`
+        `]`
+    `},`
+    `"title": "One or more validation errors occurred.",`
+    `"status": 400,`
+    `"traceId": "0HLUO4T0R5API:00000006"`
+`}`
+
+## Support and contact details
+
+_If you have any questions, suggestions, comments, or concerns, feel free to contact me at prestwick97@gmail.com_
+
+## Technologies Used
+
+* _C#_
+* _.NETcore scaffolding_
+* _json_
+* _MVC_
+* _Postman_
+* _API versioning_
+* _SwaggerEditer_
+* _VScode_
+* _MySQL_
+* _MySQL Workbench_
+
+### License
+
+*Licensed under the open source MIT license*
+
+Copyright (c) 2020 **_Patrick S. Delane and friends_**| name | string | Query animal by name. |
+| species | string | Query animal by species. |
+| gender | string | Query animal by gender. |
+| age | int | Query animal by age. |
+
+_Additional parameters using Version Two:_
+| Parameter | Type | Description |
+| :---: | :---: | :---: | --- |
+| start | int | Query animal by age older than this number. |
+| age | int | Query animal by age. |
+| end | int | Query animal by age younger than this number. |
+
+
+Example Queries:
+
+
+## Setup/Installation Requirements
+
+* _1. CLone the repository containing the API._
+  * Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone `.
+* _2. After cloning the repository, navigate to the project directory of the repository._
+  * `> cd AnimalShelter.Solution`
+  * `> cd AnimalShelter`
+* _3. Once you're inside the project directory, migrate the data to form a database in MySQL._
+  * `> dotnet ef migrations add Initial`
+  * `> dotnet ef database update`
+  * _You now have the database neccessary to use the API!_
+* _Now feel free to C.R.U.D. away using Postman, or by building an interface._
+
+## Known Bugs
+
+_At the moment, even though you can search for a specific age in version 2.0 of the API (AnimalsTwoController), when you try to request animals within a range of ages (http://localhost:5000/api/2.0/animals/age/?start=01-01-2012&end=01-31-2019), you get the following error:_
+`{`
+    `"errors": {`
+        `"id": [`
+            `"The value 'age' is not valid."`
+        `]`
+    `},`
+    `"title": "One or more validation errors occurred.",`
+    `"status": 400,`
+    `"traceId": "0HLUO4T0R5API:00000006"`
+`}`
+
+## Support and contact details
+
+_If you have any questions, suggestions, comments, or concerns, feel free to contact me at prestwick97@gmail.com_
+
+## Technologies Used
+
+* _C#_
+* _.NETcore scaffolding_
+* _json_
+* _MVC_
+* _Postman_
+* _API versioning_
+* _SwaggerEditer_
+* _VScode_
+* _MySQL_
+* _MySQL Workbench_
+
+### License
+
+*Licensed under the open source MIT license*
+
+Copyright (c) 2020 **_Patrick S. Delane and friends_**| name | string | Query animal by name. |
+| species | string | Query animal by species. |
+| gender | string | Query animal by gender. |
+| age | int | Query animal by age. |
+
+_Additional parameters using Version Two:_
+| Parameter | Type | Description |
+| :---: | :---: | :---: | --- |
+| start | int | Query animal by age older than this number. |
+| age | int | Query animal by age. |
+| end | int | Query animal by age younger than this number. |
+
+
+Example Queries:
+
+
+## Setup/Installation Requirements
+
+* _1. CLone the repository containing the API._
+  * Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone `.
+* _2. After cloning the repository, navigate to the project directory of the repository._
+  * `> cd AnimalShelter.Solution`
+  * `> cd AnimalShelter`
+* _3. Once you're inside the project directory, migrate the data to form a database in MySQL._
+  * `> dotnet ef migrations add Initial`
+  * `> dotnet ef database update`
+  * _You now have the database neccessary to use the API!_
+* _Now feel free to C.R.U.D. away using Postman, or by building an interface._
+
+## Known Bugs
+
+_At the moment, even though you can search for a specific age in version 2.0 of the API (AnimalsTwoController), when you try to request animals within a range of ages (http://localhost:5000/api/2.0/animals/age/?start=01-01-2012&end=01-31-2019), you get the following error:_
+`{`
+    `"errors": {`
+        `"id": [`
+            `"The value 'age' is not valid."`
+        `]`
+    `},`
+    `"title": "One or more validation errors occurred.",`
+    `"status": 400,`
+    `"traceId": "0HLUO4T0R5API:00000006"`
+`}`
+
+## Support and contact details
+
+_If you have any questions, suggestions, comments, or concerns, feel free to contact me at prestwick97@gmail.com_
+
+## Technologies Used
+
+* _C#_
+* _.NETcore scaffolding_
+* _json_
+* _MVC_
+* _Postman_
+* _API versioning_
+* _SwaggerEditer_
+* _VScode_
+* _MySQL_
+* _MySQL Workbench_
+
+### License
+
+*Licensed under the open source MIT license*
+
+Copyright (c) 2020 **_Patrick S. Delane and friends_**| name | string | Query animal by name. |
+| species | string | Query animal by species. |
+| gender | string | Query animal by gender. |
+| age | int | Query animal by age. |
+
+_Additional parameters using Version Two:_
+| Parameter | Type | Description |
+| :---: | :---: | :---: | --- |
+| start | int | Query animal by age older than this number. |
+| age | int | Query animal by age. |
+| end | int | Query animal by age younger than this number. |
+
+
+Example Queries:
+
+
+## Setup/Installation Requirements
+
+* _1. CLone the repository containing the API._
+  * Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone `.
+* _2. After cloning the repository, navigate to the project directory of the repository._
+  * `> cd AnimalShelter.Solution`
+  * `> cd AnimalShelter`
+* _3. Once you're inside the project directory, migrate the data to form a database in MySQL._
+  * `> dotnet ef migrations add Initial`
+  * `> dotnet ef database update`
+  * _You now have the database neccessary to use the API!_
+* _Now feel free to C.R.U.D. away using Postman, or by building an interface._
+
+## Known Bugs
+
+_At the moment, even though you can search for a specific age in version 2.0 of the API (AnimalsTwoController), when you try to request animals within a range of ages (http://localhost:5000/api/2.0/animals/age/?start=01-01-2012&end=01-31-2019), you get the following error:_
+`{`
+    `"errors": {`
+        `"id": [`
+            `"The value 'age' is not valid."`
+        `]`
+    `},`
+    `"title": "One or more validation errors occurred.",`
+    `"status": 400,`
+    `"traceId": "0HLUO4T0R5API:00000006"`
+`}`
+
+## Support and contact details
+
+_If you have any questions, suggestions, comments, or concerns, feel free to contact me at prestwick97@gmail.com_
+
+## Technologies Used
+
+* _C#_
+* _.NETcore scaffolding_
+* _json_
+* _MVC_
+* _Postman_
+* _API versioning_
+* _SwaggerEditer_
+* _VScode_
+* _MySQL_
+* _MySQL Workbench_
+
+### License
+
+*Licensed under the open source MIT license*
+
+Copyright (c) 2020 **_Patrick S. Delane and friends_**| name | string | Query animal by name. |
+| species | string | Query animal by species. |
+| gender | string | Query animal by gender. |
+| age | int | Query animal by age. |
+
+_Additional parameters using Version Two:_
+| Parameter | Type | Description |
+| :---: | :---: | :---: | --- |
+| start | int | Query animal by age older than this number. |
+| age | int | Query animal by age. |
+| end | int | Query animal by age younger than this number. |
+
+
+Example Queries:
+
+
+## Setup/Installation Requirements
+
+* _1. CLone the repository containing the API._
+  * Open your command terminal, navigate to the desktop directory and enter the following command: `> git clone `.
+* _2. After cloning the repository, navigate to the project directory of the repository._
+  * `> cd AnimalShelter.Solution`
+  * `> cd AnimalShelter`
+* _3. Once you're inside the project directory, migrate the data to form a database in MySQL._
+  * `> dotnet ef migrations add Initial`
+  * `> dotnet ef database update`
+  * _You now have the database neccessary to use the API!_
+* _Now feel free to C.R.U.D. away using Postman, or by building an interface._
+
+## Known Bugs
+
+_At the moment, even though you can search for a specific age in version 2.0 of the API (AnimalsTwoController), when you try to request animals within a range of ages (http://localhost:5000/api/2.0/animals/age/?start=01-01-2012&end=01-31-2019), you get the following error:_
+`{`
+    `"errors": {`
+        `"id": [`
+            `"The value 'age' is not valid."`
+        `]`
+    `},`
+    `"title": "One or more validation errors occurred.",`
+    `"status": 400,`
+    `"traceId": "0HLUO4T0R5API:00000006"`
+`}`
+
+## Support and contact details
+
+_If you have any questions, suggestions, comments, or concerns, feel free to contact me at prestwick97@gmail.com_
+
+## Technologies Used
+
+* _C#_
+* _.NETcore scaffolding_
+* _json_
+* _MVC_
+* _Postman_
+* _API versioning_
+* _SwaggerEditer_
+* _VScode_
+* _MySQL_
+* _MySQL Workbench_
+
+### License
+
+*Licensed under the open source MIT license*
+
+Copyright (c) 2020 **_Patrick S. Delane and friends_**
