@@ -8,6 +8,11 @@
 
 _You have the ability to edit, create, observe, and delete objects in the database through this API._
 
+### Component Diagram
+
+![Screen Shot 2020-05-12 at 10 44 05 AM](https://user-images.githubusercontent.com/32975967/81727316-9d3a9700-943d-11ea-8fce-e8643b575d20.png)
+
+
 
 ### user stories:
 
@@ -125,7 +130,7 @@ _If you have any questions, suggestions, comments, or concerns, feel free to con
 
 
 squad cred
-mr.computer
+mr.computer 💻
 Co-authored-by: jeremy kale padot <jeremy@padot.us>
 Co-authored-by: Patrick Delaney <prestwick97@gmail.com>
 Co-authored-by: Rachel Schieferstein <violenza@gmail.com>
